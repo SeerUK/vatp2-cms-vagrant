@@ -1,0 +1,21 @@
+---
+machines:
+  va_web:
+    hostname: "va_web"
+    ipv4: "192.168.68.10"
+    playbook: "provisioning/ansible/web_server.yml"
+    folder_map:
+    - guest: "/opt/www"
+      host: "../../byng_systems@bitbucket.org/vatp2-cms/"
+      owner: www-data
+      group: www-data
+    port_map:
+    - guest: 80
+      host: 8080
+    - guest: 443
+      host: 4443
+
+  va_db:
+    hostname: "va_db"
+    ipv4: "192.168.68.20"
+    playbook: "provisioning/ansible/db_server.yml"
